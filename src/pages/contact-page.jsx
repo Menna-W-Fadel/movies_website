@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useState } from "react";
+import { Alert } from "@mui/material";
 
 const ContactPage = () => {
   const [form, setForm] = useState({
@@ -8,14 +9,33 @@ const ContactPage = () => {
     email: "",
     message: "",
   });
+  const [error, setError] = useState("");
+  const [sent, setSent] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (error) setError("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form); 
+
+    if (!form.name.trim()) {
+      setError("Please enter your name.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      setError("Please enter a valid email address so we can reply to you.");
+      return;
+    }
+    if (!form.message.trim()) {
+      setError("Please write a short message before sending.");
+      return;
+    }
+
+    setError("");
+    setSent(true);
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
@@ -28,6 +48,14 @@ const ContactPage = () => {
         <div className="divider-emerald mt-2 mb-4"></div>
 
         <form onSubmit={handleSubmit} className="contact-form">
+
+          {sent && (
+            <Alert severity="success">
+              Thank you, your message has been sent. We will get back to you soon.
+            </Alert>
+          )}
+
+          {error && <Alert severity="error">{error}</Alert>}
 
           <input
             type="text"

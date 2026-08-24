@@ -12,6 +12,7 @@ import {
   FormControlLabel,
   Radio,
   Checkbox,
+  Alert,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -25,6 +26,7 @@ const RegisterComponent = () => {
     country: "",
     terms: false,
   });
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value, checked, type } = e.target;
@@ -32,17 +34,41 @@ const RegisterComponent = () => {
       ...form,
       [name]: type === "checkbox" ? checked : value,
     });
+    if (error) setError("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!form.name.trim()) {
+      setError("Please enter your full name.");
+      return;
+    }
+    if (!form.email.trim()) {
+      setError("Please enter your email address.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      setError("Please enter a valid email address (e.g. name@example.com).");
+      return;
+    }
+    if (form.password.length < 6) {
+      setError("Your password must be at least 6 characters long.");
+      return;
+    }
+    if (!form.country) {
+      setError("Please select your country.");
+      return;
+    }
+    if (!form.gender) {
+      setError("Please select your gender.");
+      return;
+    }
     if (!form.terms) {
-      alert("You must accept terms");
+      setError("Please accept the Terms and Conditions to continue.");
       return;
     }
 
-    console.log(form);
     navigate("/login");
   };
 
@@ -78,6 +104,8 @@ const RegisterComponent = () => {
           {/* form */}
           <Box component="form" onSubmit={handleSubmit}>
             <Stack spacing={3}>
+              {error && <Alert severity="error">{error}</Alert>}
+
               <TextField
                 label="Full Name"
                 name="name"

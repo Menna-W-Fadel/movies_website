@@ -6,6 +6,7 @@ import {
   Box,
   Stack,
   Typography,
+  Alert,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -15,17 +16,37 @@ const LoginComponent = () => {
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
+    if (error) setError("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+
+    const email = form.email.trim();
+    if (!email) {
+      setError("Please enter your email address.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Please enter a valid email address (e.g. name@example.com).");
+      return;
+    }
+    if (!form.password) {
+      setError("Please enter your password.");
+      return;
+    }
+    if (form.password.length < 6) {
+      setError("Your password must be at least 6 characters long.");
+      return;
+    }
+
     navigate("/");
   };
 
@@ -60,6 +81,8 @@ const LoginComponent = () => {
 
           <Box component="form" onSubmit={handleSubmit}>
             <Stack spacing={3}>
+              {error && <Alert severity="error">{error}</Alert>}
+
               <TextField
                 label="Email"
                 name="email"

@@ -23,7 +23,7 @@ const NavBar = ({ user }) => {
       >
         <div className="container-fluid">
           <Link className="nav-logo navbar-brand heading-section" to="/">
-            Lumière
+            Lumiere
           </Link>
 
           <button

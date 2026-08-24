@@ -49,7 +49,7 @@ const UpdateComponent = () => {
   return (
     <div className="edit-page">
       <div className="edit-layout">
-        {/* LEFT — FORM */}
+        {/* LEFT: FORM */}
         <div className="edit-form-section">
           <h1 className="heading-section">Edit Movie</h1>
           <div className="divider-emerald mt-2 mb-4"></div>
@@ -140,7 +140,7 @@ const UpdateComponent = () => {
             <img src={poster} alt="poster" className="preview-poster" />
             <div className="preview-title">{updatedMovie.title}</div>
             <div className="preview-meta">
-              ⭐ {updatedMovie.vote_average} · {updatedMovie.release_date} ·{" "}
+              Rating: {updatedMovie.vote_average} | {updatedMovie.release_date} |{" "}
               {(updatedMovie.original_language || "--").toUpperCase()}
             </div>
           </div>

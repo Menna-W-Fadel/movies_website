@@ -19,13 +19,13 @@ const AboutPage = () => {
       <section className="about-content">
 
         <div className="about-block">
-          <h2 className="heading-section">What is Lumière?</h2>
+          <h2 className="heading-section">What is Lumiere?</h2>
           <div className="divider-emerald"></div>
 
           <p className="text-muted mt-3">
-            Lumière is a cinematic platform designed for film enthusiasts who value
+            Lumiere is a cinematic platform designed for film enthusiasts who value
             elegance, clarity, and control. It transforms the way you browse,
-            manage, and experience movies — combining functionality with a refined visual identity.
+            manage, and experience movies, combining functionality with a refined visual identity.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ const AboutPage = () => {
             <p className="label">Vision</p>
             <h3 className="card-title">Curated Experience</h3>
             <p className="text-muted">
-              Not just data — a curated environment that respects film as an art form.
+              More than data: a curated environment that respects film as an art form.
             </p>
           </div>
 

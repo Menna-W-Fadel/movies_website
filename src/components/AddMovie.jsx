@@ -132,7 +132,7 @@ const AddMovie = () => {
           </form>
         </div>
 
-        {/* RIGHT — PREVIEW */}
+        {/* RIGHT: PREVIEW */}
         <div className="edit-preview-section">
           <p className="label">Preview</p>
 
@@ -149,8 +149,8 @@ const AddMovie = () => {
             </div>
 
             <div className="preview-meta">
-              ⭐ {newMovie.vote_average || "0.0"} ·{" "}
-              {newMovie.release_date || "----"} ·{" "}
+              Rating: {newMovie.vote_average || "0.0"} |{" "}
+              {newMovie.release_date || "----"} |{" "}
               {(newMovie.original_language || "--").toUpperCase()}
             </div>
           </div>

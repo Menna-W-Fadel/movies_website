@@ -24,32 +24,33 @@ const FooterComponent = () => {
 
             <Box className="footer-brand">
               <Typography variant="h5" component="h2" className="footer-title">
-                Lumière
+                Lumiere
               </Typography>
               <Typography variant="body2" className="footer-subtitle">
-                Cinéma · Atelier
+                Cinema Studio
               </Typography>
               <Typography variant="body2" className="footer-description">
                 A private salon for those who believe a film deserves to be
                 remembered.
               </Typography>
             </Box>
-       
+        
+
 
           
             <Box className="footer-nav">
               <Typography variant="overline" className="footer-label">
-                Salon
+                Explore
               </Typography>
               
               <Stack direction="row" spacing={4}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  <Link to="/">Atelier</Link>
-                  <Link to="/favorites">Collection</Link>
+                  <Link to="/">Home</Link>
+                  <Link to="/favorites">Favorites</Link>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  <Link to="/movies/add">Maison</Link>
-                  <Link to="/contact">Correspondence</Link>
+                  <Link to="/movies/add">Add Movie</Link>
+                  <Link to="/contact">Contact</Link>
                 </Box>
               </Stack>
             </Box>
@@ -57,10 +58,10 @@ const FooterComponent = () => {
 
         <Box className="footer-bottom-text">
           <Typography variant="caption" display="block">
-            © 2026 Lumière · Cinéma Atelier
+            © 2026 Lumiere Cinema Studio. All rights reserved.
           </Typography>
           <Typography variant="caption" component="span" sx={{ fontStyle: 'italic' }}>
-            — Pour les cinéphiles
+            Made for movie lovers.
           </Typography>
         </Box>
       </Container>
