@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addMovie } from "../redux/slices/moviesSlice";
+import { toast } from "react-toastify";
 
 const AddMovie = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const AddMovie = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addMovie({ ...newMovie, genre_ids: [] }));
+    toast.success("Movie added successfully!");
     navigate("/");
   };
 
@@ -35,7 +37,7 @@ const AddMovie = () => {
     : "";
 
   return (
-    <div className="edit-page">
+    <div className="edit-page animate-fade-in-up">
       <div className="edit-layout">
 
         <div className="edit-form-section">

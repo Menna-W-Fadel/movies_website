@@ -6,6 +6,7 @@ import {
   addFavorite,
   removeFavorite,
 } from "../redux/slices/favoritesSlice";
+import { toast } from "react-toastify";
 
 const MovieCard = ({ movie }) => {
   const dispatch = useDispatch();
@@ -23,8 +24,10 @@ const MovieCard = ({ movie }) => {
 
     if (existingFav) {
       dispatch(removeFavorite(existingFav.id));
+      toast.info("Removed from favorites");
     } else {
       dispatch(addFavorite(movie.id));
+      toast.success("Added to favorites");
     }
   };
 

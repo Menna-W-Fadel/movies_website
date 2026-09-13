@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateMovie } from "../redux/slices/moviesSlice";
-import { Star, Calendar, Globe } from "lucide-react";
+import { toast } from "react-toastify";
 
 const UpdateComponent = () => {
   const { movieId } = useParams();
@@ -35,6 +35,7 @@ const UpdateComponent = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     dispatch(updateMovie({ ...movie, ...updatedMovie }));
+    toast.success(`"${updatedMovie.title}" has been updated.`);
     navigate(`/movie/${movieId}`);
   };
 
@@ -47,7 +48,7 @@ const UpdateComponent = () => {
     : "";
 
   return (
-    <div className="edit-page">
+    <div className="edit-page animate-fade-in-up">
       <div className="edit-layout">
         {/* LEFT: FORM */}
         <div className="edit-form-section">

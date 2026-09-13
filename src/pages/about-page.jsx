@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutPage = () => {
   return (
-    <div className="about-page">
+    <div className="about-page animate-fade-in">
 
       <section className="about-hero">
         <div className="about-overlay"></div>

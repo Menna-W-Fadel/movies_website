@@ -17,7 +17,7 @@ const Movies = () => {
         <>
         <div className='label'>Lumiere</div>
         <div className='heading-section' style={{fontSize:50}}>Library</div>
-        <div className="movie-list ">
+        <div className="movie-list animate-fade-in-up">
             {moviesList.map(movie => <MovieCard key={movie.id} movie={movie}></MovieCard>)}
         </div>
         </>

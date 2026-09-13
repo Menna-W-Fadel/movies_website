@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./pages/home-page";
 import AboutPage from "./pages/about-page";
 import ContactPage from "./pages/contact-page";
@@ -57,6 +58,3 @@ return (
 }
 
 export default App;
-
-
-

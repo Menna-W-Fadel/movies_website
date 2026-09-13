@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteMovie } from "../redux/slices/moviesSlice";
 import { removeFavorite } from "../redux/slices/favoritesSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const DeleteComponent = ({ movie }) => {
   const dispatch = useDispatch();
@@ -13,8 +14,8 @@ const DeleteComponent = ({ movie }) => {
     if (existingFav) {
       await dispatch(removeFavorite(existingFav.id));
     }
-
     await dispatch(deleteMovie(movie.id));
+    toast.success(`"${movie.title}" has been deleted.`);
     navigate("/");
   };
 

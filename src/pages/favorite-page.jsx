@@ -19,7 +19,7 @@ const FavoritePage = () => {
     .filter(Boolean);
 
   return (
-    <div style={{ padding: "40px" }}>
+    <div className="animate-fade-in-up" style={{ padding: "40px 20px" }}>
       <div className="label">Your</div>
       <div className="heading-section" style={{ fontSize: 50 }}>Favorites</div>
       <div className="movie-list">

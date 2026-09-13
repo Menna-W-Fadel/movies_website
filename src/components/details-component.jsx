@@ -21,7 +21,7 @@ const DetailsComponent = () => {
 
   return (
     <>
-      <div className="details-page">
+      <div className="details-page animate-fade-in">
         <div className="details-backdrop" style={{ backgroundImage: `url(${backdrop})` }}>
           <div className="details-backdrop-overlay"></div>
         </div>
@@ -48,8 +48,8 @@ const DetailsComponent = () => {
                 <button className="btn-glass destructive" data-bs-toggle="modal" data-bs-target="#deleteModal">
                   <Trash2 size={14} style={{ marginRight: 6 }} />Delete
                 </button>
-                <Link to={`/movies/edit/${movie.id}`}>
-                  <button className="btn-glass"><Pencil size={14} style={{ marginRight: 6 }} />Edit</button>
+                <Link to={`/movies/edit/${movie.id}`} className="btn-glass" style={{ textDecoration: 'none' }}>
+                  <Pencil size={14} style={{ marginRight: 6 }} />Edit
                 </Link>
               </div>
             </div>

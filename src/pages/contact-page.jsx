@@ -39,7 +39,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="contact-page">
+    <div className="contact-page animate-fade-in-up">
 
       <div className="contact-container glass-strong">
 
